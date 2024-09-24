@@ -74,6 +74,8 @@ jobs:
       - run:
           name: Run Python script
           command: |
+            cat /etc/apt/sources.list.d/google-chrome.list
+            cat /etc/apt/sources.list.d/google.list
             sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E88979FB9B30ACF2
             cd IDSIT/vuln/Tests/quality_test/
             sudo apt update
