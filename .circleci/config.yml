@@ -46,7 +46,7 @@ jobs:
       - run:
           name: Run Python script
           command: |
-            cd IDSIT/vul/Tests/unit_tests/
+            cd IDSIT/vuln/Tests/unit_tests/
             python unit1.py
 
   integration_tests:
