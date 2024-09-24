@@ -10,16 +10,9 @@ jobs:
           name: Install pip
           command: python -m ensurepip --upgrade
       - run:
-          name: Install pip
-          command: |
-            cd IDSIT
-            \Scripts\activate
-      - run:
           name: install requirements hahahah
           command: |
-            python -m pip install --upgrade pip
             pip install -r requirements.txt
-            pip show django
 
   setup_db:
     docker:
