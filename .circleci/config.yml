@@ -66,6 +66,11 @@ jobs:
             python int.py
             python int2.py
       - run:
+          name: Install lsof
+          command: |
+            sudo apt update
+            sudo apt install -y lsof
+      - run:
           name: Stop Django Server
           command: |
             kill $(lsof -t -i:8000)
