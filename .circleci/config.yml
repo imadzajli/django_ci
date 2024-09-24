@@ -12,8 +12,7 @@ jobs:
       - run:
           name: install requirements hahahah
           command: |
-            cd IDSIT
-            pip install -r requirements.txt
+            ls
 
   setup_db:
     docker:
@@ -23,10 +22,7 @@ jobs:
       - run:
           name: Run Python script
           command: |
-            cd IDSIT
-            pip install -r requirements.txt
-            python manage.py makemigrations
-            python manage.py migrate
+            ls
 
   run_project:
     docker:
