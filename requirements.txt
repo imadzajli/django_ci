@@ -15,3 +15,7 @@ gunicorn==20.1.0
 sqlparse==0.4.3
 unicorn==2.0.1.post1
 utils==1.0.2
+asgiref==3.5.2
+dnspython==2.6.1
+sqlparse==0.4.3
+tzdata==2022.4
