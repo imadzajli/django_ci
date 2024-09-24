@@ -1,7 +1,7 @@
 import json
 
 
-f = open("../results.json",'r')
+f = open("results.json",'r')
 
 report = json.load(f)
 
