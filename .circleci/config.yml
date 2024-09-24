@@ -65,11 +65,9 @@ jobs:
             cd vuln/Tests/integration_tests/
             python int.py
             python int2.py
-       - run:
+      - run:
           name: Stop Django server
-          command: |
-            kill $(lsof -t -i:8000)
-
+          command: kill $(lsof -t -i:8000)
   quality_test:
     machine:
       image: ubuntu-2004:202010-01
