@@ -36,7 +36,9 @@ jobs:
       - run:
           name: Run Python script
           command: |
-            python manage.py run
+            cd IDSIT
+            pip install -r requirements.txt
+            python manage.py runserver
 
   unit_tests:
     docker:
@@ -46,7 +48,7 @@ jobs:
       - run:
           name: Run Python script
           command: |
-            cd Tests
+            cd .circleci/Tests/unit_tests/
             python unit_tests.py
 
   integration_tests:
@@ -57,7 +59,7 @@ jobs:
       - run:
           name: Run Python script
           command: |
-            cd Tests
+            cd .circleci/Tests/integration_tests/
             python integration_tests.py
 
   quality_test:
@@ -68,7 +70,7 @@ jobs:
       - run:
           name: Run Python script
           command: |
-            cd Tests/quality_test/
+            cd .circleci/Tests/quality_test/
             sudo apt install flake8
             flake8 /PASSWORD_VULN > quality.txt
             python quality.py
@@ -81,6 +83,7 @@ jobs:
       - run:
           name: Run Python script
           command: |
+            cd .circleci/Tests/
             python report/report.py
 
 workflows:
