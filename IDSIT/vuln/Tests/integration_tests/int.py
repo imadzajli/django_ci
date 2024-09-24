@@ -41,7 +41,8 @@ class TestDB:
         return ck
     def delete_test(self,id):
         try:
-            obj = self.table.objects.delete(id=id)
+            obj = self.table.objects.get(id=id)
+            obj.delete()
             ck = 200
         except Exception as e:
             ck = e
