@@ -94,15 +94,12 @@ workflows:
             - setup_db
       - unit_tests:
           requires:
-            - setup_db
             - run_project
       - integration_tests:
           requires:
-            - setup_db
             - run_project
       - quality_test:
           requires:
-            - setup_db
             - run_project
       - report:
           requires:
