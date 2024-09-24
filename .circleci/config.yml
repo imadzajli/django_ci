@@ -12,6 +12,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
+            python -m pip install --upgrade pip
             pip install -r requirements.txt
 
   setup_db:
@@ -94,12 +95,15 @@ workflows:
       - unit_tests:
           requires:
             - setup_db
+            - run_project
       - integration_tests:
           requires:
             - setup_db
+            - run_project
       - quality_test:
           requires:
             - setup_db
+            - run_project
       - report:
           requires:
             - unit_tests
