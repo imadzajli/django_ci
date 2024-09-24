@@ -12,6 +12,7 @@ jobs:
       - run:
           name: install requirements hahahah
           command: |
+            cd IDSIT
             pip install -r requirements.txt
 
   setup_db:
