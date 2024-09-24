@@ -53,14 +53,22 @@ jobs:
     steps:
       - checkout
       - run:
+        name: Start Django development server in background
+        command: |
+          cd IDSIT
+          pip install -r requirements.txt
+          python manage.py runserver &
+          sleep 5
+      - run:
           name: Run Python script
           command: |
-            cd IDSIT
-            pip install -r requirements.txt
-            python manage.py runserver
             cd vuln/Tests/integration_tests/
             python int.py
             python int2.py
+       - run:
+          name: Stop Django server
+          command: |
+            kill $(lsof -t -i:8000)
 
   quality_test:
     machine:
@@ -72,8 +80,7 @@ jobs:
           command: |
             cd IDSIT/vuln/Tests/quality_test/
             sudo apt install flake8
-            man flake8
-            echo "8888888888"
+            flake8 ../../.. > quality.txt
             python quality.py
 
   report:
