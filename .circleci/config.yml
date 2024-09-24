@@ -13,6 +13,7 @@ jobs:
           name: Install dependencies
           command: |
             pip install -r requirements.txt
+
   setup_db:
     docker:
       - image: circleci/python:3.10
@@ -23,6 +24,7 @@ jobs:
           command: |
             python manage.py makemigrations
             python manage.py migrate
+
   run_project:
     docker:
       - image: circleci/python:3.10
@@ -32,6 +34,7 @@ jobs:
           name: Run Python script
           command: |
             python manage.py run
+
   unit_tests:
     docker:
       - image: circleci/python:3.10
@@ -42,6 +45,7 @@ jobs:
           command: |
             cd Tests
             python unit_tests.py
+
   integration_tests:
     docker:
       - image: circleci/python:3.10
@@ -52,6 +56,7 @@ jobs:
           command: |
             cd Tests
             python integration_tests.py
+
   quality_test:
     docker:
       - image: circleci/python:3.10
@@ -64,6 +69,7 @@ jobs:
             sudo apt install flake8
             flake8 /PASSWORD_VULN > quality.txt
             python quality.py
+
   report:
     docker:
       - image: circleci/python:3.10
@@ -80,12 +86,11 @@ workflows:
     jobs:
       - build
       - setup_db:
-        requires:
-          - build
+          requires:
+            - build
       - run_project:
-        requires:
-          - setup_db
-
+          requires:
+            - setup_db
       - unit_tests:
           requires:
             - setup_db
