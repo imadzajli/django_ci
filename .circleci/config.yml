@@ -74,6 +74,7 @@ jobs:
       - run:
           name: Run Python script
           command: |
+            sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E88979FB9B30ACF2
             cd IDSIT/vuln/Tests/quality_test/
             sudo apt update
             sudo apt install -y flake8 --allow-downgrades
