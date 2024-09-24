@@ -79,7 +79,7 @@ jobs:
             cd IDSIT/vuln/Tests/quality_test/
             pip install flake8
             flake8 ../../.. > quality.txt
-            python quality.py
+            python qual.py
 
   report:
     docker:
