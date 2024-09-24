@@ -17,7 +17,7 @@ jobs:
             mv web/ ./IDSIT/
             mv web_app/ ./IDSIT/
             cd IDSIT
-            source activate
+            source bin/activate
       - run:
           name: install requirements hahahah
           command: |
