@@ -63,8 +63,8 @@ jobs:
             python int2.py
 
   quality_test:
-    docker:
-      - image: circleci/python:3.10
+    machine:
+      image: ubuntu-2004:202010-01
     steps:
       - checkout
       - run:
