@@ -15,6 +15,7 @@ jobs:
             python -m venv IDSIT
             ls
             mv web/ ./IDSIT/
+            mv web_app/ ./IDSIT/
             cd IDSIT
             ls
       - run:
