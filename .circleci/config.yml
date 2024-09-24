@@ -67,8 +67,10 @@ jobs:
             python int2.py
 
   quality_test:
+    resource_class: "windows.medium"
     machine:
-      image: ubuntu-2004:202010-01
+      image: "windows-server-2022-gui:current"
+      shell: "powershell.exe -ExecutionPolicy Bypass"
     steps:
       - checkout
       - run:
