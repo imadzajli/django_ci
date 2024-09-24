@@ -1,7 +1,10 @@
-from ..models import *
+import os, django
 import json
 
+from vuln.models import *
 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myproject.settings')  # Change to your project name
+django.setup()
 
 all_users = user.objects.all()
 
