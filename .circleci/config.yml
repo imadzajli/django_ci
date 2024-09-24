@@ -15,9 +15,8 @@ jobs:
             python -m venv IDSIT
             ls
             mv web/ ./IDSIT/
-            mv web_app/ ./IDSIT/
             cd IDSIT
-            source activate
+            ls
       - run:
           name: install requirements hahahah
           command: |
