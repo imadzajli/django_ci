@@ -23,6 +23,7 @@ jobs:
       - run:
           name: Run Python script
           command: |
+            cd IDSIT
             python manage.py makemigrations
             python manage.py migrate
 
