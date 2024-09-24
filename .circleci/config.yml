@@ -71,8 +71,8 @@ jobs:
           command: |
             cd IDSIT/vuln/Tests/quality_test/
             sudo apt install flake8
-            ls
             flake8 ../../.. > quality.txt
+            echo "8888888888"
             python quality.py
 
   report:
