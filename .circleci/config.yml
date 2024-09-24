@@ -13,8 +13,8 @@ jobs:
           name: Install pip
           command: |
             python -m venv IDSIT
-            mv /web/ ./IDSIT/
-            mv /web_app/ ./IDSIT/
+            mv web/ ./IDSIT/
+            mv web_app/ ./IDSIT/
             cd IDSIT
             source activate
       - run:
