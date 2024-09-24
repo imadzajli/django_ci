@@ -1,4 +1,4 @@
-from vuln.models import *
+from ..models import *
 import json
 
 
