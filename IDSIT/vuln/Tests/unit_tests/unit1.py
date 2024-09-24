@@ -1,5 +1,8 @@
 import os, django
 import json
+import sys
+
+sys.path.append('../../..')
 
 
 
