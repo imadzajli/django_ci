@@ -13,7 +13,7 @@ jobs:
           name: Install pip
           command: |
             cd IDSIT
-            source bin/activate
+            \Scripts\activate
       - run:
           name: install requirements hahahah
           command: |
