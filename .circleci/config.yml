@@ -78,7 +78,8 @@ jobs:
           name: Run Python script
           command: |
             cd IDSIT/vuln/Tests/quality_test/
-            sudo apt install flake8
+            sudo apt update
+            sudo apt install -y flake8
             flake8 ../../.. > quality.txt
             python quality.py
 
