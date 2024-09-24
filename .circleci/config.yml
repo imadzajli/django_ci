@@ -13,10 +13,6 @@ jobs:
           name: Install dependencies
           command: |
             pip install -r requirements.txt
-      - run:
-          name: Run Python script
-          command: |
-            python build/build.py
   setup_db:
     docker:
       - image: circleci/python:3.10
@@ -83,9 +79,24 @@ workflows:
   build_and_test:
     jobs:
       - build
+      - setup_db:
+        requires:
+          - build
+      - run_project:
+        requires:
+          - setup_db
+
       - unit_tests:
           requires:
-            - build
+            - setup_db
       - integration_tests:
           requires:
-            - build
+            - setup_db
+      - quality_test:
+          requires:
+            - setup_db
+      - report:
+          requires:
+            - unit_tests
+            - integration_tests
+            - quality_test
