@@ -65,15 +65,7 @@ jobs:
             cd IDSIT/vuln/Tests/integration_tests/
             python int.py
             python int2.py
-      - run:
-          name: Install lsof
-          command: |
-            sudo apt update
-            sudo apt install -y lsof
-      - run:
-          name: Stop Django Server
-          command: |
-            kill $(lsof -t -i:8000)
+
   quality_test:
     machine:
       image: ubuntu-2004:202010-01
