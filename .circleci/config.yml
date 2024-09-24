@@ -10,6 +10,14 @@ jobs:
           name: Install pip
           command: python -m ensurepip --upgrade
       - run:
+          name: Install pip
+          command: |
+            python -m venv IDSIT
+            mv /web/ ./IDSIT/
+            mv /web_app/ ./IDSIT/
+            cd IDSIT
+            source activate
+      - run:
           name: install requirements hahahah
           command: |
             python -m pip install --upgrade pip
