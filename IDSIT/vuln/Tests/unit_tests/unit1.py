@@ -7,6 +7,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myproject.settings')
 django.setup()
 from vuln.models import *
 
+print("hello test")
 all_users = user.objects.all()
 
 predifined_amount = 2000
