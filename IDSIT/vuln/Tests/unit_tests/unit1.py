@@ -3,7 +3,7 @@ import json
 
 
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myproject.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'password_vuln.settings')
 django.setup()
 from vuln.models import *
 
