@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install pip
+          name: Install pip name
           command: python -m ensurepip --upgrade
       - run:
           name: install requirements hahahah
@@ -78,7 +78,7 @@ jobs:
           command: |
             cd IDSIT/vuln/Tests/quality_test/
             pip install flake8
-            flake8 ../../.. > quality.txt
+            flake8 ../../.. > /IDSIT/vuln/Tests/quality_test/quality.txt
             python qual.py
 
   report:
