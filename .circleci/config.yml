@@ -62,7 +62,7 @@ jobs:
       - run:
           name: Run Integration Tests
           command: |
-            cd vuln/Tests/integration_tests/
+            cd IDSIT/vuln/Tests/integration_tests/
             python int.py
             python int2.py
       - run:
