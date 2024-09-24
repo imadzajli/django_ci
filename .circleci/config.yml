@@ -53,21 +53,22 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Start Django development server in background
-        command: |
-          cd IDSIT
-          pip install -r requirements.txt
-          python manage.py runserver &
-          sleep 5
+          name: Start Django Development Server in Background
+          command: |
+            cd IDSIT
+            pip install -r requirements.txt
+            python manage.py runserver 127.0.0.1:8000 &
+            sleep 5
       - run:
-          name: Run Python script
+          name: Run Integration Tests
           command: |
             cd vuln/Tests/integration_tests/
             python int.py
             python int2.py
       - run:
-          name: Stop Django server
-          command: kill $(lsof -t -i:8000)
+          name: Stop Django Server
+          command: |
+            kill $(lsof -t -i:8000)
   quality_test:
     machine:
       image: ubuntu-2004:202010-01
