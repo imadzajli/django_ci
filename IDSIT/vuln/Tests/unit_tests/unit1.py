@@ -3,7 +3,7 @@ import json
 
 
 
-all_users = user.objects,all()
+all_users = user.objects.all()
 
 predifined_amount = 2000
 
