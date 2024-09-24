@@ -47,7 +47,7 @@ jobs:
           name: Run Python script
           command: |
             cd Tests/unit_tests/
-            python unit_tests.py
+            python unit1.py
 
   integration_tests:
     docker:
@@ -58,7 +58,8 @@ jobs:
           name: Run Python script
           command: |
             cd Tests/integration_tests/
-            python integration_tests.py
+            python int.py
+            python int2.py
 
   quality_test:
     docker:
