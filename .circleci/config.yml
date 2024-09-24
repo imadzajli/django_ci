@@ -1,0 +1,99 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.10
+    steps:
+      - checkout
+      - run:
+          name: Install pip
+          command: python -m ensurepip --upgrade
+      - run:
+          name: Install dependencies
+          command: |
+            pip install -r requirements.txt
+      - run:
+          name: Run Python script
+          command: |
+            python build/build.py
+  setup_db:
+    docker:
+      - image: circleci/python:3.10
+    steps:
+      - checkout
+      - run:
+          name: Run Python script
+          command: |
+            python manage.py makemigrations
+            python manage.py migrate
+  run_project:
+    docker:
+      - image: circleci/python:3.10
+    steps:
+      - checkout
+      - run:
+          name: Run Python script
+          command: |
+            python manage.py run
+  unit_tests:
+    docker:
+      - image: circleci/python:3.10
+    steps:
+      - checkout
+      - run:
+          name: Run Python script
+          command: |
+            cd Tests
+            python unit_tests.py
+  integration_tests:
+    docker:
+      - image: circleci/python:3.10
+    steps:
+      - checkout
+      - run:
+          name: Run Python script
+          command: |
+            cd Tests
+            python integration_tests.py
+  quality_test:
+    docker:
+      - image: circleci/python:3.10
+    steps:
+      - checkout
+      - run:
+          name: Run Python script
+          command: |
+            cd Tests/quality_test/
+            sudo apt install flake8
+            flake8 /PASSWORD_VULN > quality.txt
+            python quality.py
+  report:
+    docker:
+      - image: circleci/python:3.10
+    steps:
+      - checkout
+      - run:
+          name: Run Python script
+          command: |
+            python report/report.py
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - unit_tests:
+          requires:
+            - build
+      - integration_tests:
+          requires:
+            - build
+      - connection_tests:
+          requires:
+            - build
+      - report:
+          requires:
+            - unit_tests
+            - integration_tests
+            - connection_tests

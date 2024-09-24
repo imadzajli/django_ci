@@ -1,0 +1,17 @@
+Django==4.2.2
+django-auditlog==3.0.0
+django-bootstrap5==24.2
+django-cors-headers==4.1.0
+django-filter==24.3
+django-heroku==0.3.1
+django-jsonfield==1.4.1
+django-prometheus==2.3.1
+django-redis==5.4.0
+django-rest-framework==0.1.0
+djangorestframework==3.14.0
+djangorestframework-jwt==1.11.0
+djangorestframework-simplejwt==5.2.2
+gunicorn==20.1.0
+sqlparse==0.4.3
+unicorn==2.0.1.post1
+utils==1.0.2

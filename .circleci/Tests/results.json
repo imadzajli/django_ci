@@ -1,0 +1,8 @@
+{
+    "unit tests": "failed",
+    "integration tests": {
+        "database test":"failed",
+        "urls test":"failed"
+    },
+    "quality test": {}
+}
