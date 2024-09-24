@@ -1,6 +1,17 @@
-import requests
-from vuln.urls import urlpatterns
+import os, django
 import json
+import sys
+import requests
+sys.path.append('../../..')
+
+
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'password_vuln.settings')
+django.setup()
+
+
+from vuln.urls import urlpatterns
+
 
 base_url = 'http://127.0.0.1:8000/'
 

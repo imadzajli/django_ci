@@ -1,3 +1,14 @@
+import os, django
+import json
+import sys
+
+sys.path.append('../../..')
+
+
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'password_vuln.settings')
+django.setup()
+
 from vuln.models import *
 import json
 

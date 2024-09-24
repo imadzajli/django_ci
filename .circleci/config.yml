@@ -55,7 +55,9 @@ jobs:
       - run:
           name: Run Python script
           command: |
-            cd Tests/integration_tests/
+            cd IDSIT
+            pip install -r requirements.txt
+            cd vuln/Tests/integration_tests/
             python int.py
             python int2.py
 
@@ -67,7 +69,7 @@ jobs:
       - run:
           name: Run Python script
           command: |
-            cd Tests/quality_test/
+            cd IDSIT/vuln/Tests/quality_test/
             sudo apt install flake8
             flake8 /PASSWORD_VULN > quality.txt
             python quality.py
@@ -80,8 +82,8 @@ jobs:
       - run:
           name: Run Python script
           command: |
-            cd Tests
-            python report/report.py
+            cd TIDSIT/vuln/Tests/
+            python report.py
 
 workflows:
   version: 2
