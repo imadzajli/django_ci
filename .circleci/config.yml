@@ -1,6 +1,8 @@
 version: 2.1
 
 jobs:
+  orbs:
+    win: circleci/windows@4.1.1
   build:
     docker:
       - image: circleci/python:3.10
@@ -103,8 +105,7 @@ jobs:
             echo "my name is imad" > name.txt
             cat name.txt
   MyJob2:
-    machine:
-      image: windows-default
+    executor: win/server-2022
     steps:
       - checkout
       - run:
