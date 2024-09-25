@@ -104,7 +104,7 @@ jobs:
             cat name.txt
   MyJob2:
     machine:
-      - image: windows-default
+      image: windows-default
     steps:
       - checkout
       - run:
