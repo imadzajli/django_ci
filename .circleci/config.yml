@@ -91,15 +91,46 @@ jobs:
           command: |
             cd IDSIT/vuln/Tests/
             python report.py
+  MyJob1:
+    machine:
+      - image: ubuntu-2204:current
+
+    steps:
+      - checkout
+      - run:
+          name: here is a name IDSIT
+          command: |
+            ls 
+            echo "my name is imad" > name.txt
+            cat name.txt
+  MyJob2:
+    machine:
+      - image: windows-default
+
+    steps:
+      - checkout
+      - run:
+          name: here is a seconf name devops
+          command: |
+            ls
+            java --version
+            python --vserion
 
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
+      - MyJob1:
+          reuires:
+            - build
+      - MyJob2:
+          reuires:
+            - build
       - setup_db:
           requires:
-            - build
+            - MyJob1
+            - MyJob2
       - run_project:
           requires:
             - setup_db
