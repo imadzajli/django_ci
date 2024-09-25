@@ -93,8 +93,8 @@ jobs:
             cd IDSIT/vuln/Tests/
             python report.py
   MyJob1:
-    executor:
-      name: windows/default
+    machine:
+      image: ubuntu-2204:current
     steps:
       - checkout
       - run:
