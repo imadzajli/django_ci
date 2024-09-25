@@ -92,10 +92,8 @@ jobs:
             cd IDSIT/vuln/Tests/
             python report.py
   MyJob1:
-    resource_class: "windows.medium"
-    machine:
-      image: "windows-server-2022-gui:current"
-      shell: "powershell.exe -ExecutionPolicy Bypass"
+    executor:
+      name: windows/default
     steps:
       - checkout
       - run:
