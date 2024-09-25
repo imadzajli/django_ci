@@ -93,14 +93,13 @@ jobs:
             python report.py
   MyJob1:
     machine:
-      - image: ubuntu-2204:current
-
+      image: ubuntu-2204:current
     steps:
       - checkout
       - run:
           name: here is a name IDSIT
           command: |
-            ls 
+            ls
             echo "my name is imad" > name.txt
             cat name.txt
   MyJob2:
