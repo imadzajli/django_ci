@@ -105,7 +105,6 @@ jobs:
   MyJob2:
     machine:
       - image: windows-default
-
     steps:
       - checkout
       - run:
