@@ -112,7 +112,7 @@ jobs:
           command: |
             ls
             java --version
-            python --vserion
+            python -h
 
 workflows:
   version: 2
